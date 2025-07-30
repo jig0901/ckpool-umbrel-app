@@ -1,7 +1,7 @@
 manifestVersion: 1
-id: ckpool
+id: sparkles-ckpool
 category: bitcoin
-name: CKPool Solo Mining
+name: CKPool
 version: "0.1.0"
 tagline: Self‑hosted solo mining stratum server using CKPool
 description: >-
