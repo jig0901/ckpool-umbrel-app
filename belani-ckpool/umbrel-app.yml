@@ -1,13 +1,11 @@
 manifestVersion: 1
 id: belani-ckpool
-category: bitcoin
 name: CKPool
+category: bitcoin
 version: "0.1.0"
-tagline: Self‑hosted solo mining stratum server using CKPool. 
-description: >-
+tagline: Self‑hosted solo mining stratum server using CKPool
+description: >
   A containerized CKPool setup that connects directly to Umbrel’s Bitcoin node.
 releaseNotes: Initial Umbrel‑compatible version
 developer: Jigish Belani
-repo: https://github.com/jig0901/ckpool-docker-bitbucket
-website: https://github.com/jig0901/ckpool-docker-bitbucket
 dependencies:
