@@ -2,17 +2,32 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install build dependencies
 RUN apt-get update && \
-    apt-get install -y git build-essential libcurl4-openssl-dev libjansson-dev uthash-dev automake libtool autoconf pkg-config && \
+    apt-get install -y \
+    git \
+    build-essential \
+    libcurl4-openssl-dev \
+    libjansson-dev \
+    uthash-dev \
+    automake \
+    libtool \
+    autoconf \
+    pkg-config && \
     apt-get clean
 
-# Clone CKPool
+# Clone ckpool
 RUN git clone https://bitbucket.org/ckolivas/ckpool.git /ckpool
 
-# Build CKPool
+# Build ckpool
 WORKDIR /ckpool
-# Patch global_ckp declaration
 RUN ./autogen.sh && ./configure CFLAGS="-O2" && make
 
-# Default command to run CKPool (adjust args/config as needed)
-CMD ["/src/ckpool", "-c", "ckpool.conf", "-k", "-q"]
+# Copy your custom config (optional: mount this instead)
+COPY ckpool.conf /ckpool/ckpool.conf
+
+# Expose default stratum port
+EXPOSE 3333
+
+# Run ckpool with config
+CMD ["./ckpool", "-c", "ckpool.conf", "-k", "-q"]
