@@ -5,13 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: on-failure
-    command: ["/src/ckpool", "-c", "/app/ckpool.conf"]
+    command: ["/ckpool", "-c", "/app/ckpool.conf"]
     ports:
       - "3333:3333"
     volumes:
       - ${APP_DATA_DIR}/ckpool/logs:/ckpool/logs
       - ./ckpool.conf:/ckpool/ckpool.conf
-
     environment:
       BITCOIND_RPC_USER: $APP_BITCOIN_RPC_USER
       BITCOIND_RPC_PASSWORD: $APP_BITCOIN_RPC_PASS
