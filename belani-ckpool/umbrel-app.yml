@@ -1,4 +1,4 @@
-manifestVersion: 1
+manifestVersion: 2
 id: belani-ckpool
 category: bitcoin
 name: CKPool
@@ -11,5 +11,3 @@ developer: Jigish Belani
 repo: https://github.com/jig0901/ckpool-docker-bitbucket
 website: https://github.com/jig0901/ckpool-docker-bitbucket
 dependencies:
-port: 3333
-path: ""
