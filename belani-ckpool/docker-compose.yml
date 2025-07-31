@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     restart: on-failure
     working_dir: /ckpool
-    command: ["./src/pool/ckpool", "-c", "ckpool.conf", "-k", "-q"]
+    command: ["./src/ckpool", "-c", "ckpool.conf", "-k", "-q"]
     ports:
       - "3333:3333"
     volumes:
