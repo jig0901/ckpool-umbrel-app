@@ -7,10 +7,9 @@ tagline: Self‑hosted solo mining stratum server using CKPool
 description: >-
   A containerized CKPool setup that connects directly to Umbrel’s Bitcoin node.
 releaseNotes: Initial Umbrel‑compatible version
-developer: Your Name
+developer: Jigish Belani
 repo: https://github.com/jig0901/ckpool-docker-bitbucket
 website: https://github.com/jig0901/ckpool-docker-bitbucket
 dependencies:
-  - bitcoin
 port: 3333
 path: ""
