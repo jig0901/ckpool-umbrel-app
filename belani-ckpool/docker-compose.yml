@@ -1,16 +1,13 @@
 version: "3.7"
+
 services:
   ckpool:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: on-failure
     ports:
       - "3333:3333"
     volumes:
-      - ${APP_DATA_DIR}/ckpool/logs:/ckpool/logs
-    environment:
-      BITCOIND_RPC_USER: $APP_BITCOIN_RPC_USER
-      BITCOIND_RPC_PASSWORD: $APP_BITCOIN_RPC_PASS
-      BITCOIND_HOST: $APP_BITCOIN_NODE_IP
-      BITCOIND_PORT: $APP_BITCOIN_RPC_PORT
+      - ./ckpool.conf:/app/ckpool.conf
+    command: ["/ckpool/ckpool", "-c", "/app/ckpool.conf"]
+    restart: unless-stopped
