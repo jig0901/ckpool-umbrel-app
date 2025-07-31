@@ -1,5 +1,5 @@
 manifestVersion: 1
-id: "belani-ckpool"
+id: belani-ckpool
 category: bitcoin
 name: CKPool
 version: "0.1.0"
