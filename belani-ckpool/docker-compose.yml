@@ -1,12 +1,11 @@
 # remove the "version:" key (deprecated)
 services:
-  belani-ckpool:                # ⚠️ must match your umbrel-app.yml id
-    build:
-      context: .
-      dockerfile: Dockerfile
-    working_dir: /ckpool        # <— important
-    command: /ckpool/src/ckpool -c /ckpool/src/ckpool.conf -k -q
+  belani-ckpool:                # (must match your app id)
+    build: .
+    working_dir: /ckpool
+    command: ["ckpool", "-c", "/ckpool/src/ckpool.conf", "-k", "-q"]
     volumes:
+      - ./ckpool.conf:/ckpool/src/ckpool.conf:ro   # ← mount config where the cmd expects it
       - ${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/belani-ckpool}/data:/data
     networks:
       - app_net
