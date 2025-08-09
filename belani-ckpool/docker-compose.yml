@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /ckpool        # <— important
-    command: ["./pool/ckpool", "-c", "pool/ckpool.conf", "-k", "-q"]
+    command: /ckpool/src/ckpool -c /ckpool/src/ckpool.conf -k -q
     volumes:
       - ${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/belani-ckpool}/data:/data
     networks:
