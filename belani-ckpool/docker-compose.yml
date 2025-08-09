@@ -1,13 +1,21 @@
-version: "3.7"
+# remove the "version:" key (deprecated)
 services:
-  ckpool:
-    build: .
-    restart: on-failure
-    command: ./pool/ckpool -c pool/ckpool.conf -k -q
+  belani-ckpool:                # ⚠️ must match your umbrel-app.yml id
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /ckpool        # <— important
+    command: ["./pool/ckpool", "-c", "pool/ckpool.conf", "-k", "-q"]
     volumes:
-      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/belani-ckpool}/data:/data
     networks:
       - app_net
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "true"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 networks:
   app_net:
