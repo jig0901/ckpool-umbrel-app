@@ -3,7 +3,7 @@ services:
   belani-ckpool:                # (must match your app id)
     build: .
     working_dir: /ckpool
-    command: ["/src/ckpool", "-c", "/ckpool/src/ckpool.conf", "-k", "-q"]
+    command: ["/ckpool/src/ckpool", "-c", "/ckpool/src/ckpool.conf", "-k", "-q"]
     volumes:
       - ./ckpool.conf:/ckpool/src/ckpool.conf:ro   # ← mount config where the cmd expects it
       - ${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/belani-ckpool}/data:/data
